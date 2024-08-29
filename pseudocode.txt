@@ -1,0 +1,4 @@
+Server callback:
+Use request pathname to call the filesystem read function 
+in order to get the html content based on the URL path
+Write the html content to the http response object
