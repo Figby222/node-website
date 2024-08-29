@@ -10,6 +10,6 @@ http.createServer((req, res) => {
         }
 
         res.write(data);
+        return res.end();
     })
-    res.end();
 }).listen(8080);
