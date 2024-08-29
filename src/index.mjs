@@ -3,6 +3,13 @@ import fs from "node:fs";
 
 http.createServer((req, res) => {
     res.writeHead(200, { "Content-Type": "text/html" });
-    res.write("Hello World!");
+    fs.readFile("index.html", (err, data) => {
+        if (err) {
+            console.log(err);
+            return;
+        }
+
+        res.write(data);
+    })
     res.end;
 }).listen(8080);
