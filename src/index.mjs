@@ -11,5 +11,5 @@ http.createServer((req, res) => {
 
         res.write(data);
     })
-    res.end;
+    res.end();
 }).listen(8080);
