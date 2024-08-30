@@ -33,5 +33,10 @@ app.get("/about", (req, res) => {
     serveHTMLContent(filePath, res);
 })
 
+app.use((req, res) => {
+    const filePath = "./src/404.html";
+    serveHTMLContent(filePath, res);
+})
+
 const PORT = process.env.PORT;
 app.listen(PORT, () => console.log(`Application is listening on port ${PORT}`))
