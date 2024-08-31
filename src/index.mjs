@@ -3,8 +3,8 @@ const app = express();
 import "dotenv/config";
 import fs from "node:fs";
 
-function serveHTMLContent(filePath, res) {
-    res.writeHead(200, {"Content-Type": "text/html" });
+function serveHTMLContent(filePath, res, status=200) {
+    res.writeHead(status, {"Content-Type": "text/html" });
     res.write("hi");
 
     fs.readFile(filePath, (err, data) => {
@@ -35,7 +35,7 @@ app.get("/about", (req, res) => {
 
 app.use((req, res) => {
     const filePath = "./src/404.html";
-    serveHTMLContent(filePath, res);
+    serveHTMLContent(filePath, res, 404);
 })
 
 const PORT = process.env.PORT;
